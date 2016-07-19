@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Simple Calculator Using Django</title>
+	</head>
+	<body>
+		<h1>Simple Calculator Using Django</h1>
+
+		<form action="{% url 'calculate' %}" method="post">{% csrf_token %}
+			<p>
+				<label for="number1">숫자1 :</label>
+				<input type="number" name="number1" value="0">
+			</p>
+
+			<p>
+				<label for="number2">숫자2 :</label>
+				<input type="number" name="number2" value="0">
+			</p>
+
+			<p>
+				<select name="operation">
+					<option value="plus">+</option>
+					<option value="minus">-</option>
+					<option value="multiply">*</option>
+					<option value="divide">/</option>
+				</select>
+				<input type="text" name="result" value="{{ result }}" disabled>
+			</p>
+			<p>
+				<button type="submit" name="submit">계산하기</button>
+			</p>
+		</form>
+	</body>
+</html>
